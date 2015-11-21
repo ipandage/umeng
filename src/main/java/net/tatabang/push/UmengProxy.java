@@ -1,9 +1,6 @@
 package net.tatabang.push;
 
-import net.tatabang.push.android.AndroidBroadcast;
-import net.tatabang.push.android.AndroidCustomizedcast;
-import net.tatabang.push.android.AndroidFilecast;
-import net.tatabang.push.android.AndroidGroupcast;
+import net.tatabang.push.android.*;
 import net.tatabang.push.ios.*;
 import net.tatabang.push.util.UMConfigUtil;
 
@@ -32,11 +29,13 @@ public class UmengProxy {
 
     /**
      * 单播（Android）
-     * @param broadcast
+     * @param deviceToken
+     * @param unicast
      * @throws Exception
      */
-    public void sendAndroidUnicast(AndroidBroadcast broadcast) throws Exception {
-        client.send(broadcast);
+    public void sendAndroidUnicast(String deviceToken, AndroidUnicast unicast) throws Exception {
+        unicast.preSetParams(appkey, appMasterSecret);
+        client.send(unicast);
     }
 
     /**
@@ -45,7 +44,7 @@ public class UmengProxy {
      * @throws Exception
      */
     public void sendAndroidBroadcast(AndroidBroadcast broadcast) throws Exception {
-        broadcast = new AndroidBroadcast(appkey, appMasterSecret);
+        broadcast.preSetParams(appkey, appMasterSecret);
         broadcast.setDisplayType(AndroidNotification.DisplayType.NOTIFICATION);
         client.send(broadcast);
     }
@@ -56,7 +55,7 @@ public class UmengProxy {
      * @throws Exception
      */
     public void sendAndroidCustomizedcast(AndroidCustomizedcast customizedcast) throws Exception {
-        customizedcast = new AndroidCustomizedcast(appkey,appMasterSecret);
+        customizedcast.preSetParams(appkey, appMasterSecret);
         customizedcast.setDisplayType(AndroidNotification.DisplayType.NOTIFICATION);
         client.send(customizedcast);
     }
@@ -67,7 +66,7 @@ public class UmengProxy {
      * @throws Exception
      */
     public void sendAndroidCustomizedcastFile(AndroidCustomizedcast customizedcast) throws Exception {
-        customizedcast = new AndroidCustomizedcast(appkey,appMasterSecret);
+        customizedcast.preSetParams(appkey, appMasterSecret);
         customizedcast.setDisplayType(AndroidNotification.DisplayType.NOTIFICATION);
         client.send(customizedcast);
     }
@@ -78,7 +77,7 @@ public class UmengProxy {
      * @throws Exception
      */
     public void sendAndroidGroupcast(AndroidGroupcast groupcast) throws Exception {
-        groupcast = new AndroidGroupcast(appkey,appMasterSecret);
+        groupcast.preSetParams(appkey, appMasterSecret);
         groupcast.setDisplayType(AndroidNotification.DisplayType.NOTIFICATION);
         client.send(groupcast);
     }
@@ -89,7 +88,7 @@ public class UmengProxy {
      * @throws Exception
      */
     public void sendAndroidFilecast(AndroidFilecast filecast) throws Exception {
-        filecast = new AndroidFilecast(appkey,appMasterSecret);
+        filecast.preSetParams(appkey, appMasterSecret);
         filecast.setDisplayType(AndroidNotification.DisplayType.NOTIFICATION);
         client.send(filecast);
     }
@@ -101,7 +100,7 @@ public class UmengProxy {
      * @throws Exception
      */
     public void sendIOSBroadcast(IOSBroadcast broadcast) throws Exception {
-        broadcast = new IOSBroadcast(appkey,appMasterSecret);
+        broadcast.preSetParams(appkey, appMasterSecret);
         client.send(broadcast);
     }
 
@@ -111,7 +110,7 @@ public class UmengProxy {
      * @throws Exception
      */
     public void sendIOSUnicast(IOSUnicast unicast) throws Exception {
-        unicast = new IOSUnicast(appkey,appMasterSecret);
+        unicast.preSetParams(appkey, appMasterSecret);
         client.send(unicast);
     }
 
@@ -121,7 +120,7 @@ public class UmengProxy {
      * @throws Exception
      */
     public void sendIOSGroupcast(IOSGroupcast groupcast) throws Exception {
-        groupcast = new IOSGroupcast(appkey,appMasterSecret);
+        groupcast.preSetParams(appkey, appMasterSecret);
         client.send(groupcast);
     }
 
@@ -131,7 +130,7 @@ public class UmengProxy {
      * @throws Exception
      */
     public void sendIOSCustomizedcast(IOSCustomizedcast customizedcast) throws Exception {
-        customizedcast = new IOSCustomizedcast(appkey,appMasterSecret);
+        customizedcast.preSetParams(appkey, appMasterSecret);
         client.send(customizedcast);
     }
 
@@ -141,7 +140,7 @@ public class UmengProxy {
      * @throws Exception
      */
     public void sendIOSFilecast(IOSFilecast filecast) throws Exception {
-        filecast = new IOSFilecast(appkey,appMasterSecret);
+        filecast.preSetParams(appkey, appMasterSecret);
         client.send(filecast);
     }
 

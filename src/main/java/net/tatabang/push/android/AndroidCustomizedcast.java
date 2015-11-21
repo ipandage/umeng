@@ -3,12 +3,15 @@ package net.tatabang.push.android;
 import net.tatabang.push.AndroidNotification;
 
 public class AndroidCustomizedcast extends AndroidNotification {
-	public AndroidCustomizedcast(String appkey,String appMasterSecret) throws Exception {
-			setAppMasterSecret(appMasterSecret);
-			setPredefinedKeyValue("appkey", appkey);
-			this.setPredefinedKeyValue("type", "customizedcast");	
-	}
-	
+
+    public AndroidCustomizedcast() { }
+
+    public void preSetParams(String appkey,String appMasterSecret) throws Exception {
+        setAppMasterSecret(appMasterSecret);
+        setPredefinedKeyValue("appkey", appkey);
+        this.setPredefinedKeyValue("type", "customizedcast");
+    }
+
 	public void setAlias(String alias,String aliasType) throws Exception {
     	setPredefinedKeyValue("alias", alias);
     	setPredefinedKeyValue("alias_type", aliasType);
