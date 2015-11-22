@@ -6,6 +6,22 @@ import java.util.HashSet;
 import org.json.JSONObject;
 
 public abstract class AndroidNotification extends UmengNotification {
+
+    public AndroidNotification(String ticker, String title, String text) {
+        try {
+            setTicker(ticker);
+            setTitle(title);
+            setText(text);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void preSetParams(String appkey,String appMasterSecret) throws Exception {
+        setAppMasterSecret(appMasterSecret);
+        setPredefinedKeyValue("appkey", appkey);
+    }
+
 	// Keys can be set in the payload level
 	protected static final HashSet<String> PAYLOAD_KEYS = new HashSet<String>(Arrays.asList(new String[]{
 			"display_type"}));
