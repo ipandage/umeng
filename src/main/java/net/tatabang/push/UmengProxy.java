@@ -34,6 +34,7 @@ public class UmengProxy {
      * @throws Exception
      */
     public void sendAndroidUnicast(String deviceToken, AndroidUnicast unicast) throws Exception {
+        unicast.setDeviceToken(deviceToken);
         unicast.preSetParams(appkey, appMasterSecret);
         client.send(unicast);
     }
@@ -61,14 +62,14 @@ public class UmengProxy {
     }
 
     /**
-     *
+     * todo 修改
      * @param customizedcast
      * @throws Exception
      */
     public void sendAndroidCustomizedcastFile(AndroidCustomizedcast customizedcast) throws Exception {
         customizedcast.preSetParams(appkey, appMasterSecret);
         customizedcast.setDisplayType(AndroidNotification.DisplayType.NOTIFICATION);
-        client.send(customizedcast);
+        client.uploadContents(appkey, appMasterSecret, "");
     }
 
     /**
