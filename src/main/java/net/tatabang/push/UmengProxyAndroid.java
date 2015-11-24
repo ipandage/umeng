@@ -10,19 +10,19 @@ import net.tatabang.push.util.UMConfigUtil;
  * @author xingang
  * @date 2015年11月21日
  */
-public class UmengProxy {
+public class UmengProxyAndroid {
 
     private final String appkey;
     private final String appMasterSecret;
 
     private PushClient client = new PushClient();
 
-	public UmengProxy() {
-		this.appkey = UMConfigUtil.getValue("app_key");
-		this.appMasterSecret = UMConfigUtil.getValue("master_secret");
+	public UmengProxyAndroid() {
+		this.appkey = UMConfigUtil.getValue("android_app_key");
+		this.appMasterSecret = UMConfigUtil.getValue("android_master_secret");
 	}
 
-	public UmengProxy(String appkey, String masterSecret) {
+	public UmengProxyAndroid(String appkey, String masterSecret) {
 		this.appkey = appkey;
 		this.appMasterSecret = masterSecret;
 	}
@@ -91,57 +91,6 @@ public class UmengProxy {
     public void sendAndroidFilecast(AndroidFilecast filecast) throws Exception {
         filecast.preSetParams(appkey, appMasterSecret);
         filecast.setDisplayType(AndroidNotification.DisplayType.NOTIFICATION);
-        client.send(filecast);
-    }
-
-
-    /**
-     * 广播（Ios）
-     * @param broadcast
-     * @throws Exception
-     */
-    public void sendIOSBroadcast(IOSBroadcast broadcast) throws Exception {
-        broadcast.preSetParams(appkey, appMasterSecret);
-        client.send(broadcast);
-    }
-
-    /**
-     * 单播（Ios）
-     * @param unicast
-     * @throws Exception
-     */
-    public void sendIOSUnicast(IOSUnicast unicast) throws Exception {
-        unicast.preSetParams(appkey, appMasterSecret);
-        client.send(unicast);
-    }
-
-    /**
-     * 组播（Ios）
-     * @param groupcast
-     * @throws Exception
-     */
-    public void sendIOSGroupcast(IOSGroupcast groupcast) throws Exception {
-        groupcast.preSetParams(appkey, appMasterSecret);
-        client.send(groupcast);
-    }
-
-    /**
-     *
-     * @param customizedcast
-     * @throws Exception
-     */
-    public void sendIOSCustomizedcast(IOSCustomizedcast customizedcast) throws Exception {
-        customizedcast.preSetParams(appkey, appMasterSecret);
-        client.send(customizedcast);
-    }
-
-    /**
-     * 文件播 （Ios）
-     * @param filecast
-     * @throws Exception
-     */
-    public void sendIOSFilecast(IOSFilecast filecast) throws Exception {
-        filecast.preSetParams(appkey, appMasterSecret);
         client.send(filecast);
     }
 

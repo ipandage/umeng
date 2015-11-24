@@ -4,7 +4,9 @@ import net.tatabang.push.IOSNotification;
 
 public class IOSCustomizedcast extends IOSNotification {
 
-    public IOSCustomizedcast() { }
+    public IOSCustomizedcast(String alert) {
+        super(alert);
+    }
 
     public void preSetParams(String appkey,String appMasterSecret) throws Exception {
         setAppMasterSecret(appMasterSecret);

@@ -6,7 +6,9 @@ import net.tatabang.push.IOSNotification;
 
 public class IOSGroupcast extends IOSNotification {
 
-    public IOSGroupcast() { }
+    public IOSGroupcast(String alert) {
+        super(alert);
+    }
 
     public void preSetParams(String appkey,String appMasterSecret) throws Exception {
         setAppMasterSecret(appMasterSecret);

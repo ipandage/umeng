@@ -4,7 +4,9 @@ import net.tatabang.push.IOSNotification;
 
 public class IOSFilecast extends IOSNotification {
 
-    public IOSFilecast() { }
+    public IOSFilecast(String alert) {
+        super(alert);
+    }
 
     public void preSetParams(String appkey,String appMasterSecret) throws Exception {
         setAppMasterSecret(appMasterSecret);

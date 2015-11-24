@@ -1,14 +1,16 @@
 package net.tatabang.push;
 
+import net.tatabang.push.ios.IOSBroadcast;
 import org.junit.Test;
 
 public class IosTest {
 
-	private final UmengProxy umengProxy = new UmengProxy();
+	private final UmengProxyIos umengProxy = new UmengProxyIos();
 
 	@Test
-	public void testSendIOSBroadcast() {
-
+	public void testSendIOSBroadcast() throws Exception {
+        IOSBroadcast broadcast = new IOSBroadcast("IOS 广播测试");
+        umengProxy.sendIOSBroadcast(broadcast);
 	}
 
     @Test

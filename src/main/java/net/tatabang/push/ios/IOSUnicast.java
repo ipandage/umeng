@@ -4,7 +4,9 @@ import net.tatabang.push.IOSNotification;
 
 public class IOSUnicast extends IOSNotification {
 
-    public IOSUnicast() { }
+    public IOSUnicast(String alert) {
+        super(alert);
+    }
 
     public void preSetParams(String appkey,String appMasterSecret) throws Exception {
         setAppMasterSecret(appMasterSecret);
