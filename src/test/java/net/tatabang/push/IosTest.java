@@ -1,6 +1,7 @@
 package net.tatabang.push;
 
 import net.tatabang.push.ios.IOSBroadcast;
+import net.tatabang.push.ios.IOSUnicast;
 import org.junit.Test;
 
 public class IosTest {
@@ -9,18 +10,18 @@ public class IosTest {
 
 	@Test
 	public void testSendIOSBroadcast() throws Exception {
-        IOSBroadcast broadcast = new IOSBroadcast("IOS 广播测试");
+        IOSBroadcast broadcast = new IOSBroadcast("广播测试");
         umengProxy.sendIOSBroadcast(broadcast);
 	}
 
     @Test
-    public void testSendIOSUnicast() {
-
+    public void testSendIOSUnicast() throws Exception {
+        IOSUnicast unicast = new IOSUnicast("单播测试");
+        umengProxy.sendIOSUnicast("", unicast);
     }
 
     @Test
     public void testSendIOSGroupcast() {
-
     }
 
     @Test

@@ -39,10 +39,12 @@ public class UmengProxyIos {
 
     /**
      * 单播（Ios）
+     * @param deviceToken
      * @param unicast
      * @throws Exception
      */
-    public void sendIOSUnicast(IOSUnicast unicast) throws Exception {
+    public void sendIOSUnicast(String deviceToken, IOSUnicast unicast) throws Exception {
+        unicast.setDeviceToken(deviceToken);
         unicast.preSetParams(appkey, appMasterSecret);
         client.send(unicast);
     }

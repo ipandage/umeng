@@ -14,7 +14,7 @@ public class IOSUnicast extends IOSNotification {
         this.setPredefinedKeyValue("type", "unicast");
     }
 
-	public void setDeviceToken(String token) throws Exception {
-    	setPredefinedKeyValue("device_tokens", token);
+	public void setDeviceToken(String deviceToken) throws Exception {
+    	setPredefinedKeyValue("device_tokens", deviceToken);
     }
 }
